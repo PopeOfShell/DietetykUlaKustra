@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https:; font-src 'self' https:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.png" />
+    <title>Dietetyka Ula Kustra</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Menu z Przyciskami-->
+        <div class="menuSticky">
+            <div class="menu">
+                <div class="menuBtnRow">
+                    <a class="menuBtn" href="/" data-route="/">Strona główna</a>
+                    <a class="menuBtn" href="/o-mnie" data-route="/o-mnie">O mnie</a>
+                    <a class="menuBtn" href="/kontakt" data-route="/kontakt">Kontakt</a>
+                    <a class="menuBtn" href="/uslugi" data-route="/uslugi">Usługi</a>
+                    <a class="menuBtn" href="/kalkulator" data-route="/kalkulator">Kalkulator</a>
+                </div>
+            </div>
+
+            <div class="logoDiv">
+                <img src="/assets/logo.png" alt="Logo" class="logo">
+                <img src="/assets/name.png" alt="LogoName" class="logo" id="logoName">
+            </div>
+        </div>
+
+        <main id="app"></main>
+        <!-- Home Template -->
+        <template id="home-template">
+            <section class="pageSection">
+                <p class="pageEyebrow">Gabinet dietetyki klinicznej URSZULA KUSTRA</p>
+                <p>tutaj jest pierwsze wrażenie więc polecam jakieś fotki + w bardzo okrojonej wersji co oferujesz i największe korzyści ze współpracy, do tego dorzucimy tu jakieś fotki z np.statystykami i grafami</p>
+            </section>
+        </template>
+        <!-- About Template -->
+        <template id="about-template">
+            <section class="pageSection aboutSection">
+                <div class="aboutHero">
+                    <div class="aboutHeroContent">
+                        <p class="pageEyebrow">Poznaj mnie</p>
+                        <h1>O mnie</h1>
+                        <p class="aboutLead">
+                            Witaj na moim profilu. Nazywam się Urszula Kustra i pracuję jako dietetyk kliniczny.
+                            Prowadzę dietoterapię z dużym zaangażowaniem, spokojem i odpowiedzialnością,
+                            tak aby pacjent otrzymał realne wsparcie dopasowane do swojej sytuacji zdrowotnej.
+                        </p>
+                        <p class="aboutIntroText">
+                            Chcę pokazać Ci, czego możesz spodziewać się po współpracy ze mną i na jakich
+                            zasadach opieram swoją codzienną praktykę w gabinecie dietetyki klinicznej.
+                        </p>
+                    </div>
+
+                    <aside class="aboutHeroPanel">
+                        <span class="aboutHeroPanelLabel">Moje podejście</span>
+                        <p class="aboutHeroPanelQuote">
+                            Dietetyka kliniczna to dla mnie połączenie naukowej rzetelności,
+                            doświadczenia klinicznego i uważnego spojrzenia na człowieka.
+                        </p>
+                        <div class="aboutHeroBadges" aria-label="Najważniejsze wartości współpracy">
+                            <span>EBM</span>
+                            <span>Bezpieczeństwo</span>
+                            <span>Indywidualizacja</span>
+                        </div>
+                    </aside>
+                </div>
+
+                <div class="aboutGallery" aria-label="Zdjęcia profilowe Urszuli Kustry">
+                    <figure class="aboutPhotoCard aboutPhotoCardTall">
+                        <img src="./assets/profile1.jpg" alt="Urszula Kustra w gabinecie dietetycznym" class="aboutPhoto">
+                    </figure>
+                    <figure class="aboutPhotoCard">
+                        <img src="./assets/profile2.jpg" alt="Portret Urszuli Kustry" class="aboutPhoto">
+                    </figure>
+                </div>
+
+                <div class="aboutGrid">
+                    <article class="aboutCard aboutCardHighlight">
+                        <span class="aboutCardLabel">Co oznacza dla mnie dietetyka kliniczna</span>
+                        <h2>Skuteczna pomoc musi być oparta na wiedzy, a nie na przypadkowych modach.</h2>
+                        <p>
+                            Prowadzenie dietoterapii rozumiem jako pracę opartą o aktualne wytyczne,
+                            badania naukowe i rozwiązania, które mają potwierdzone działanie kliniczne.
+                            Pacjent nie jest dla mnie polem do eksperymentów, tylko osobą, której trzeba
+                            zapewnić bezpieczne i rozsądne wsparcie.
+                        </p>
+                        <p class="aboutQuote">
+                            Każdy przypadek prowadzę zgodnie ze sztuką EBM, dlatego nadrzędną wartością
+                            mojej pracy jest bezpieczeństwo pacjenta.
+                        </p>
+                    </article>
+
+                    <article class="aboutCard aboutCardSoft">
+                        <span class="aboutCardLabel">Dlaczego to ważne</span>
+                        <p>
+                            Dieta ma nie tylko odpowiadać na konkretny problem zdrowotny, ale też chronić
+                            organizm jako całość. Dlatego dbam o to, by plan żywieniowy był pełnowartościowy,
+                            pokrywał zapotrzebowanie na kluczowe składniki i jednocześnie wspierał profilaktykę
+                            innych schorzeń.
+                        </p>
+                        <p>
+                            Zbyt wąskie podejście często rozwiązuje jeden problem kosztem kolejnych niedoborów.
+                            U mnie priorytetem jest skuteczność, ale zawsze w długoterminowo bezpiecznej formie.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="aboutPrinciples">
+                    <article class="aboutCard">
+                        <span class="aboutCardLabel">Jak pracuję z pacjentem</span>
+                        <ul class="aboutList">
+                            <li>Działam etycznie i zgodnie z aktualną wiedzą medyczną oraz żywieniową.</li>
+                            <li>Stosuję wyłącznie rozwiązania o potwierdzonej skuteczności klinicznej.</li>
+                            <li>Nie wprowadzam diet eksperymentalnych, pseudonaukowych ani prowadzących do niedoborów.</li>
+                            <li>Suplementację zalecam tylko wtedy, gdy rzeczywiście są do niej wskazania.</li>
+                            <li>Jeśli potrzebne jest dodatkowe wsparcie, wybieram preparaty sprawdzone i bezpieczne jakościowo.</li>
+                        </ul>
+                    </article>
+
+                    <article class="aboutCard">
+                        <span class="aboutCardLabel">Standardy, których pilnuję</span>
+                        <ul class="aboutList">
+                            <li>Nie współpracuję z producentami suplementów ani firmami MLM czy wellness sales.</li>
+                            <li>Nie obciążam budżetu pacjenta zbędnymi produktami i niepotrzebną suplementacją.</li>
+                            <li>W razie wątpliwości kieruję pacjenta do lekarza odpowiedniej specjalizacji.</li>
+                            <li>Stawiam na współpracę z lekarzami, psychologami i fizjoterapeutami, gdy wymaga tego sytuacja.</li>
+                            <li>Łączę wiedzę z doświadczeniem, aby osiągać mierzalne efekty i trwałe korzyści.</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="aboutClosing">
+                    <p class="aboutClosingEyebrow">Bezpieczna współpraca</p>
+                    <p class="aboutClosingText">
+                        Jeśli potrzebujesz wsparcia wykwalifikowanego dietetyka klinicznego, jesteś w dobrym miejscu.
+                        Otrzymasz fachową pomoc żywieniową dopasowaną do aktualnej sytuacji zdrowotnej,
+                        prowadzoną w kontrolowanych i bezpiecznych warunkach.
+                    </p>
+                </div>
+            </section>
+        </template>
+        <!-- Contact Template -->
+        <template id="contact-template">
+            <section class="pageSection">
+                <p class="pageEyebrow">Skontaktuj się</p>
+                <h1>Kontakt</h1>
+                <div class="contactLayout">
+                    <div class="contactCard">
+                        <p class="contactTitle">Godziny przyjmowania stacjonarnie</p>
+
+                        <table class="contactTable" aria-label="Godziny przyjmowania">
+                            <tbody>
+                                <tr>
+                                    <td>Poniedziałek</td>
+                                    <td>Nieczynne</td>
+                                </tr>
+                                <tr>
+                                    <td>Wtorek</td>
+                                    <td>Nieczynne</td>
+                                </tr>
+                                <tr>
+                                    <td>Środa</td>
+                                    <td>Nieczynne</td>
+                                </tr>
+                                <tr>
+                                    <td>Czwartek</td>
+                                    <td>Nieczynne</td>
+                                </tr>
+                                <tr>
+                                    <td>Piątek</td>
+                                    <td>16:00 - 19:00</td>
+                                </tr>
+                                <tr>
+                                    <td>Sobota</td>
+                                    <td>8:00 - 15:00</td>
+                                </tr>
+                                <tr>
+                                    <td>Niedziela</td>
+                                    <td>Nieczynne</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="contactCard">
+                        <p class="contactTitle">Godziny przyjmowania online</p>
+
+                        <table class="contactTable" aria-label="Godziny przyjmowania online">
+                            <tbody>
+                                <tr>
+                                    <td>Poniedziałek</td>
+                                    <td>Nieczynne</td>
+                                </tr>
+                                <tr>
+                                    <td>Wtorek</td>
+                                    <td>Nieczynne</td>
+                                </tr>
+                                <tr>
+                                    <td>Środa</td>
+                                    <td>Nieczynne</td>
+                                </tr>
+                                <tr>
+                                    <td>Czwartek</td>
+                                    <td>18:00 - 20:00</td>
+                                </tr>
+                                <tr>
+                                    <td>Piątek</td>
+                                    <td>08:00 - 19:00</td>
+                                </tr>
+                                <tr>
+                                    <td>Sobota</td>
+                                    <td>08:00 - 15:00</td>
+                                </tr>
+                                <tr>
+                                    <td>Niedziela</td>
+                                    <td>Nieczynne</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="contactCard">
+                        <p class="contactTitle">Dane kontaktowe</p>
+                        <p class="contactValue">+48 514 045 596</p>
+                        <div class="contactRow">
+                            <p class="contactValue" data-contact-email>kontakt@ulakustra.pl</p>
+                            <button type="button" class="contactCopyButton" data-copy-email>Skopiuj</button>
+                        </div>
+                        <p><a class="contactLink" href="https://www.instagram.com/ula.kustra/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+                        <p><a class="contactLink" href="https://www.facebook.com/ulakustra" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+                        <p><a class="contactLink" href="https://dietdoctor.pl/dietetyk/chelmek/4898/ula-kustra">Profil DietDoctor</a></p>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- Services Template -->
+        <template id="services-template">
+            <section class="pageSection servicesSection">
+                <p class="pageEyebrow">Zakres współpracy</p>
+                <div class="servicesIntro">
+                    <h1>Usługi</h1>
+                    <h2>Holistyczna dietoterapia dzieci i dorosłych - indywidualne podejście do pacjenta poparte doświadczeniem i wieloletnią pasją.</h2>
+                    <p>Oferuję kompleksowe wsparcie żywieniowe i dietoterapię dopasowaną do potrzeb pacjenta.</p>
+                </div>
+
+                <div class="servicesGrid">
+                    <article class="servicesCard">
+                        <h3>Dietoterapia</h3>
+                        <ul class="servicesList">
+                            <li>otyłości i jej powikłań</li>
+                            <li>anemii i niedokrwistości</li>
+                            <li>schorzeń tarczycy</li>
+                            <li>IBS (zespołu jelita drażliwego), SIBO</li>
+                            <li>nieswoistych chorób zapalnych jelit</li>
+                            <li>alergii pokarmowych i nietolerancji żywieniowych</li>
+                            <li>insulinooporności, nieprawidłowej glikemii (stanów przedcukrzycowych)</li>
+                            <li>hipercholesterolemii, hipertrójglicerydemii</li>
+                            <li>chorób układu krążenia (nadciśnienia tętniczego, choroby wieńcowej)</li>
+                            <li>dny moczanowej</li>
+                            <li>chorób autoimmunologicznych</li>
+                        </ul>
+                    </article>
+
+                    <article class="servicesCard">
+                        <h3>Oferuję także</h3>
+                        <ul class="servicesList">
+                            <li>wsparcie osób aktywnych i sportowców</li>
+                            <li>dietoterapię dzieci i młodzieży</li>
+                            <li>wsparcie żywieniowe kobiet planujących ciążę i ciężarnych</li>
+                        </ul>
+
+                        <div class="servicesMode">
+                            <p class="servicesModeLabel">Forma konsultacji</p>
+                            <p class="servicesModeText">Konsultacje online oraz stacjonarne.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="servicesBooking">
+                    <h2>Ważne informacje dotyczące rezerwacji</h2>
+                    <ul class="servicesList servicesListNotice">
+                        <li>Jeżeli po dokonaniu rezerwacji przez stronę DietDoctor nie otrzymałeś automatycznego potwierdzenia e-mailowego z portalu DietDoctor, skontaktuj się ze mną telefonicznie celem dokończenia rezerwacji.</li>
+                        <li>Po dokonaniu rezerwacji przez portal DietDoctor oczekuj ode mnie wiadomości e-mailowej w ciągu 3 dni roboczych. Otrzymasz w niej niezbędne informacje na temat konsultacji oraz wymaganych dokumentów przed pierwszym spotkaniem.</li>
+                        <li>Od 10.06.2022 po dokonaniu rezerwacji wymagane jest przesłanie zadatku w kwocie 80 zł na poczet zaliczki wizyty pierwszej. Zadatek jest bezzwrotny, a numer konta pacjent otrzyma w wiadomości e-mail.</li>
+                    </ul>
+
+                    <div class="servicesPolicy">
+                        <p>W przypadku niestawienia się na zaplanowaną wizytę lub nieodwołania wizyty minimum 24 godziny przed planowanym terminem, zadatek nie będzie zwracany, ponieważ naraża to usługodawcę na stratę finansową i czasową.</p>
+                        <p>Zgodnie z zapisami Kodeksu Cywilnego, jeśli usługa nie zostanie zrealizowana z winy klienta, zadatek przepada na rzecz usługodawcy. Za winę klienta uznaję odwołanie terminu konsultacji później niż 24 godziny przed planowaną godziną wizyty.</p>
+                        <p>W przypadku gdy dojdzie do realizacji usługi, zadatek jest częścią opłaty za konsultację pierwszą, a podczas wizyty usługobiorca dopłaca tylko pozostałą kwotę.</p>
+                    </div>
+
+                    <p class="servicesAlert">Uwaga: jeżeli zaplanowany termin zostaje odwołany na mniej niż 12 godzin od ustalonego terminu i godziny konsultacji, pacjent jest zobowiązany do zapłaty pełnej kwoty usługi.</p>
+                </div>
+
+                
+            </section>
+        </template>
+        <!-- Calculator Template -->
+        <template id="calculator-template">
+            <section class="pageSection">
+                <div class="calculatorIntro">
+                    <p class="pageEyebrow">Sprawdź swój wskaźnik</p>
+                    <h1>Kalkulator BMI, BMR i CPM</h1>
+                    <p>
+                        Wpisz podstawowe dane, aby obliczyć BMI, podstawową przemianę materii oraz orientacyjne dzienne zapotrzebowanie kaloryczne.
+                    </p>
+                </div>
+
+                <div class="calculatorLayout">
+                    <form class="bmiForm" data-bmi-form>
+                        <label class="formField">
+                            <span>Masa ciała (kg)</span>
+                            <input type="number" name="weight" min="20" max="400" step="0.1" placeholder="Np. 72.5" required>
+                        </label>
+
+                        <label class="formField">
+                            <span>Wzrost (cm)</span>
+                            <input type="number" name="height" min="100" max="250" step="0.1" placeholder="Np. 178" required>
+                        </label>
+
+                        <label class="formField">
+                            <span>Wiek</span>
+                            <input type="number" name="age" min="10" max="120" step="1" placeholder="Np. 31" required>
+                        </label>
+
+                        <label class="formField">
+                            <span>Płeć</span>
+                            <select name="sex" required>
+                                <option value="female">Kobieta</option>
+                                <option value="male">Mężczyzna</option>
+                            </select>
+                        </label>
+
+                        <label class="formField">
+                            <span>Poziom aktywności</span>
+                            <select name="activity" required>
+                                <option value="1.2">Siedzący tryb życia</option>
+                                <option value="1.375">Lekka aktywność</option>
+                                <option value="1.55" selected>Umiarkowana aktywność</option>
+                                <option value="1.725">Duża aktywność</option>
+                                <option value="1.9">Bardzo duża aktywność</option>
+                            </select>
+                        </label>
+
+                        <button type="submit" class="calculatorButton">Oblicz wyniki</button>
+                    </form>
+
+                    <aside class="resultsPanel" data-bmi-result aria-live="polite">
+                        <div class="bmiResultCard">
+                            <p class="resultLabel">BMI</p>
+                            <p class="resultValue" data-result-bmi>--</p>
+                            <p class="resultCategory" data-result-bmi-category>Wpisz dane, aby zobaczyć interpretację.</p>
+                        </div>
+
+                        <div class="metricCard">
+                            <p class="resultLabel">BMR</p>
+                            <p class="metricValue" data-result-bmr>--</p>
+                            <p class="metricHint">Podstawowa przemiana materii w kcal.</p>
+                        </div>
+
+                        <div class="metricCard">
+                            <p class="resultLabel">CPM</p>
+                            <p class="metricValue" data-result-cpm>--</p>
+                            <p class="metricHint">Szacunkowe dzienne zapotrzebowanie w kcal.</p>
+                        </div>
+
+                        <div class="goalCard">
+                            <p class="resultLabel">Cele kaloryczne</p>
+
+                            <div class="goalList">
+                                <div class="goalItem">
+                                    <span class="goalName">Redukcja</span>
+                                    <strong class="goalValue" data-result-cut>--</strong>
+                                </div>
+
+                                <div class="goalItem">
+                                    <span class="goalName">Utrzymanie</span>
+                                    <strong class="goalValue" data-result-maintain>--</strong>
+                                </div>
+
+                                <div class="goalItem">
+                                    <span class="goalName">Masa</span>
+                                    <strong class="goalValue" data-result-gain>--</strong>
+                                </div>
+                            </div>
+
+                            <p class="metricHint">Orientacyjne cele wyliczone odpowiednio jako 85%, 100% i 110% CPM.</p>
+                        </div>
+                    </aside>
+                </div>
+
+                <div class="bmiRanges" aria-label="Zakresy BMI">
+                    <div class="bmiRangeItem">
+                        <strong>Poniżej 18.5</strong>
+                        <span>Niedowaga</span>
+                    </div>
+                    <div class="bmiRangeItem">
+                        <strong>18.5 - 24.9</strong>
+                        <span>Waga prawidłowa</span>
+                    </div>
+                    <div class="bmiRangeItem">
+                        <strong>25.0 - 29.9</strong>
+                        <span>Nadwaga</span>
+                    </div>
+                    <div class="bmiRangeItem">
+                        <strong>30.0 i więcej</strong>
+                        <span>Otyłość</span>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="not-found-template">
+            <section class="pageSection">
+                <p class="pageEyebrow">Błąd trasy</p>
+                <h1>404</h1>
+                <p>Nie znaleziono takiej podstrony.</p>
+            </section>
+        </template>
+
+
+    </div>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
