@@ -1,24 +1,26 @@
 const routes = {
-    "/": "home-template",
-    "/o-mnie": "about-template",
-    "/kontakt": "contact-template",
-    "/uslugi": "services-template",
-    "/kalkulator": "calculator-template"
+    home: "home-template",
+    about: "about-template",
+    contact: "contact-template",
+    services: "services-template",
+    calculator: "calculator-template"
 };
+
+const defaultView = "home";
 
 function getTemplate(templateId) {
     return document.querySelector(`#${templateId}`);
 }
 
-function updateActiveLink(menuLinks, path) {
-    menuLinks.forEach((link) => {
-        const isActive = link.dataset.route === path;
-        link.setAttribute("aria-current", isActive ? "page" : "false");
+function updateActiveItem(menuItems, view) {
+    menuItems.forEach((item) => {
+        const isActive = item.dataset.view === view;
+        item.setAttribute("aria-pressed", String(isActive));
     });
 }
 
-function renderRoute(app, menuLinks, path, onRouteRendered) {
-    const templateId = routes[path] || "not-found-template";
+function renderView(app, menuItems, view, onRouteRendered) {
+    const templateId = routes[view];
     const template = getTemplate(templateId);
 
     if (!template) {
@@ -26,33 +28,27 @@ function renderRoute(app, menuLinks, path, onRouteRendered) {
     }
 
     app.replaceChildren(template.content.cloneNode(true));
-    updateActiveLink(menuLinks, path);
-    onRouteRendered?.(path, app);
+    updateActiveItem(menuItems, view);
+    onRouteRendered?.(view, app);
 }
 
 export function initRouting({ onRouteRendered } = {}) {
     const app = document.querySelector("#app");
-    const menuLinks = document.querySelectorAll(".menuBtn[data-route]");
+    const menuItems = document.querySelectorAll(".menuBtn[data-view]");
 
-    if (!app || menuLinks.length === 0) {
+    if (!app || menuItems.length === 0) {
         return;
     }
 
-    function navigateTo(path) {
-        history.pushState({}, "", path);
-        renderRoute(app, menuLinks, path, onRouteRendered);
+    function showView(view) {
+        renderView(app, menuItems, view, onRouteRendered);
     }
 
-    menuLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault();
-            navigateTo(link.dataset.route);
+    menuItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            showView(item.dataset.view);
         });
     });
 
-    window.addEventListener("popstate", () => {
-        renderRoute(app, menuLinks, window.location.pathname, onRouteRendered);
-    });
-
-    renderRoute(app, menuLinks, window.location.pathname, onRouteRendered);
+    renderView(app, menuItems, defaultView, onRouteRendered);
 }

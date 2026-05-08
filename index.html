@@ -13,12 +13,17 @@
         <!-- Menu z Przyciskami-->
         <div class="menuSticky">
             <div class="menu">
-                <div class="menuBtnRow">
-                    <a class="menuBtn" href="/" data-route="/">Strona główna</a>
-                    <a class="menuBtn" href="/o-mnie" data-route="/o-mnie">O mnie</a>
-                    <a class="menuBtn" href="/kontakt" data-route="/kontakt">Kontakt</a>
-                    <a class="menuBtn" href="/uslugi" data-route="/uslugi">Usługi</a>
-                    <a class="menuBtn" href="/kalkulator" data-route="/kalkulator">Kalkulator</a>
+                <button type="button" class="menuToggle" aria-expanded="false" aria-controls="main-menu" aria-label="Otwórz menu">
+                    <span class="menuToggleBar"></span>
+                    <span class="menuToggleBar"></span>
+                    <span class="menuToggleBar"></span>
+                </button>
+                <div class="menuBtnRow" id="main-menu">
+                    <button type="button" class="menuBtn" data-view="home" aria-pressed="true">Strona główna</button>
+                    <button type="button" class="menuBtn" data-view="about" aria-pressed="false">O mnie</button>
+                    <button type="button" class="menuBtn" data-view="contact" aria-pressed="false">Kontakt</button>
+                    <button type="button" class="menuBtn" data-view="services" aria-pressed="false">Usługi</button>
+                    <button type="button" class="menuBtn" data-view="calculator" aria-pressed="false">Kalkulator</button>
                 </div>
             </div>
 
@@ -413,15 +418,6 @@
                 </div>
             </section>
         </template>
-
-        <template id="not-found-template">
-            <section class="pageSection">
-                <p class="pageEyebrow">Błąd trasy</p>
-                <h1>404</h1>
-                <p>Nie znaleziono takiej podstrony.</p>
-            </section>
-        </template>
-
 
     </div>
     <script type="module" src="./js/main.js"></script>
