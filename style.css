@@ -17,6 +17,7 @@ body {
     --button-text: rgb(92, 97, 63);
     --button-shadow: 0 10px 30px rgba(76, 68, 46, 0.14);
     --button-shadow-hover: 0 14px 32px rgba(76, 68, 46, 0.2);
+    --panel-surface: rgba(255, 252, 245, 0.88);
 }
 
 body {
@@ -157,7 +158,7 @@ body {
     padding: 42px;
     border: 1px solid rgba(123, 127, 94, 0.2);
     border-radius: 30px;
-    background: rgba(255, 252, 245, 0.88);
+    background: var(--panel-surface);
     box-shadow: 0 24px 60px rgba(61, 53, 34, 0.12);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -174,6 +175,159 @@ body {
     color: rgba(64, 58, 42, 0.9);
     font-size: 1.08rem;
     line-height: 1.8;
+}
+
+.homeHero {
+    overflow: hidden;
+}
+
+.homeIntroBox {
+    display: grid;
+    gap: 14px;
+    width: min(100%, 760px);
+    margin: 0 auto 32px;
+    padding: 28px 32px;
+    border: 1px solid rgba(123, 127, 94, 0.2);
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255, 252, 245, 0.94) 0%, rgba(244, 238, 219, 0.88) 100%);
+    box-shadow: 0 18px 38px rgba(61, 53, 34, 0.1);
+    text-align: center;
+}
+
+.homeIntroEyebrow {
+    margin-bottom: 0;
+}
+
+.homeIntroTitle {
+    margin: 0;
+}
+
+.homeIntroText {
+    max-width: 58ch;
+    margin: 0 auto !important;
+}
+
+.homeIntroActions {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.homePrimaryAction {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 14px 28px;
+    border: 1px solid rgba(101, 106, 72, 0.7);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(115, 123, 70, 0.96) 0%, rgba(87, 94, 53, 0.96) 100%);
+    color: rgb(255, 251, 240);
+    text-decoration: none;
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    box-shadow: 0 16px 30px rgba(61, 53, 34, 0.16);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.homePrimaryAction:hover,
+.homePrimaryAction:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 34px rgba(61, 53, 34, 0.22);
+    filter: brightness(1.03);
+    outline: none;
+}
+
+.homePrimaryAction:active {
+    transform: translateY(0);
+}
+
+.homeSlider {
+    position: relative;
+    width: min(100%, 920px);
+    margin: 0 auto;
+}
+
+.heroViewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.heroTrack {
+    display: flex;
+    align-items: center;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.heroSlide {
+    width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heroMedia {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heroMedia img {
+    display: block;
+    width: min(100%, 560px);
+    height: auto;
+    object-fit: contain;
+    border-radius: 28px;
+    box-shadow: 0 24px 48px rgba(61, 53, 34, 0.16);
+}
+
+.heroArrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border: 1px solid rgba(128, 132, 92, 0.4);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 238, 218, 0.94) 100%);
+    color: rgb(92, 97, 63);
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 16px 32px rgba(61, 53, 34, 0.12);
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.heroArrowLeft {
+    left: max(8px, calc(50% - 370px));
+}
+
+.heroArrowRight {
+    right: max(8px, calc(50% - 370px));
+}
+
+.heroArrow:hover,
+.heroArrow:focus-visible {
+    transform: translateY(calc(-50% - 2px));
+    border-color: rgba(101, 106, 72, 0.72);
+    box-shadow: 0 20px 36px rgba(61, 53, 34, 0.18);
+    outline: none;
+}
+
+.heroArrow:active {
+    transform: translateY(-50%);
+    box-shadow: 0 10px 20px rgba(61, 53, 34, 0.16);
 }
 
 .aboutSection {
@@ -832,6 +986,18 @@ body {
         padding: 12px 18px;
     }
 
+    .heroMedia img {
+        width: min(100%, 500px);
+    }
+
+    .heroArrowLeft {
+        left: 6px;
+    }
+
+    .heroArrowRight {
+        right: 6px;
+    }
+
     .calculatorLayout,
     .aboutHero,
     .aboutGallery,
@@ -914,6 +1080,42 @@ body {
     .pageSection {
         padding: 28px 20px;
         border-radius: 24px;
+    }
+
+    .homeIntroBox {
+        padding: 22px 18px;
+        border-radius: 22px;
+        margin-bottom: 24px;
+    }
+
+    .homePrimaryAction {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 18px;
+        font-size: 0.92rem;
+    }
+
+    .homeSlider {
+        width: 100%;
+    }
+
+    .heroArrow {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+
+    .heroArrowLeft {
+        left: 0;
+    }
+
+    .heroArrowRight {
+        right: 0;
+    }
+
+    .heroMedia img {
+        width: min(100%, 100%);
+        border-radius: 22px;
     }
 
     .aboutHeroPanel,
@@ -1003,4 +1205,66 @@ body {
         position: static;
         width: min(150px, 42vw);
     }
+}
+
+.wCzymMogePomocBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto 24px;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    
+    
+}
+
+.wCzymMogePomocBox img {
+    display: block;
+    width: 50%;
+    height: auto;
+    border-radius: 60px;
+}
+
+.opinieDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: min(100%, 800px);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.opinieDiv img {
+    display: block;
+    flex-shrink: 0;
+    border-radius: 45px;
+    width: 300px;
+}
+
+.opinieDiv h4 {
+    flex: 1;
+    margin: 0;
+}
+
+.opinieDiv.opinieDivMobile {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+.opinieDiv.opinieDivMobile img {
+    width: min(100%, 300px);
+    margin: 0 auto;
+}
+
+.opinieDiv.opinieDivMobile h4 {
+    flex: none;
+    width: 100%;
 }

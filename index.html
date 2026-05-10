@@ -36,9 +36,61 @@
         <main id="app"></main>
         <!-- Home Template -->
         <template id="home-template">
-            <section class="pageSection">
-                <p class="pageEyebrow">Gabinet dietetyki klinicznej URSZULA KUSTRA</p>
-                <p>tutaj jest pierwsze wrażenie więc polecam jakieś fotki + w bardzo okrojonej wersji co oferujesz i największe korzyści ze współpracy, do tego dorzucimy tu jakieś fotki z np.statystykami i grafami</p>
+            <section class="pageSection homeHero">
+                <div class="wCzymMogePomocBox">
+                    <img src="assets/wCzymMogePomoc.jpg" alt="W czym mogę pomóc ?" id="wCzymMogePomocId">
+                </div>
+
+                <div class="homeSlider">
+                    <button type="button" class="heroArrow heroArrowLeft" aria-label="Poprzedni slajd">
+                        &lt;
+                    </button>
+                    <div class="heroViewport">
+                        <div class="heroTrack">
+                            <article class="heroSlide">
+                                <div class="heroMedia">
+                                    <img src="assets/homePanel.png" alt="Panel główny strony dietetycznej">
+                                </div>
+                            </article>
+
+                            <article class="heroSlide">
+                                <div class="heroMedia">
+                                    <img src="assets/homePanel2.png" alt="Pomoc dietetyczna online">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <button type="button" class="heroArrow heroArrowRight" aria-label="Następny slajd">
+                        &gt;
+                    </button>
+                </div>
+
+                <br><br><br>
+                
+                <div class="homeIntroBox">
+                    <p class="pageEyebrow homeIntroEyebrow">Gabinet dietetyki klinicznej URSZULA KUSTRA</p>
+                    <h1 class="homeIntroTitle">Holistyczna dietoterapia dzieci i dorosłych.</h1>
+                    <p class="homeIntroText">
+                        Możliwość konsultacji online i stacjonarnych
+                    </p>
+                    <div class="homeIntroActions">
+                        <a
+                            class="homePrimaryAction"
+                            href="https://dietdoctor.pl/dietetyk/chelmek/4898/ula-kustra"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Umów się na wizytę
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Opinie  -->
+                 <div class="opinieDiv">
+                    <img src="/assets/opinie.png" alt="Opinie.">
+                    <p style="font-style: italic;">"Wieloletnie zmaganie się z własnymi chorobami o podłożu autoimmunologicznym, pokazały mi jak wspaniałym narzędziem w walce o zdrowie jest odpowiednia dieta oraz to, co daje nam natura. Nie wierzę, że jakakolwiek choroba może być wynikiem przypadku, stąd zawsze uparcie szukam źródeł oraz wszystkich przyczyn danego schorzenia u swoich podopiecznych. Nieustanne zgłębianie wiedzy oraz udział w licznych kursach i szkoleniach pozwala mi na zastosowanie skutecznych rozwiązań z zakresu dietoterapii. Wierzę, że na zdrowie człowieka oprócz stanu ciała, składa się także stan psychiczny, a równowaga w tych kwestiach pomaga osiągnąć sukces i świetne samopoczucie"</p>
+                 </div>
+
             </section>
         </template>
         <!-- About Template -->
